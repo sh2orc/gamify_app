@@ -23,7 +23,7 @@ class ScrollableGameWidget extends StatelessWidget {
         children: _gamesData.map((_game) {
           return Container(
             height: _height,
-            width: _width * 0.45,
+            width: _width * 0.30,
             padding: EdgeInsets.only(right: _width * 0.03),
             child:Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -40,11 +40,12 @@ class ScrollableGameWidget extends StatelessWidget {
                         image: NetworkImage(_game.coverImage.url),
                   )),
                 ),
-                Text(
+                _showTitle
+                ? Text(
                   _game.title,
                   maxLines: 3,
-                  style: TextStyle(color: Colors.white, fontSize: _height * 0.08),
-                )
+                  style: TextStyle(color: Colors.white, fontSize: _height * 0.06),
+                ) : Container(),
               ],
             ),
           );
